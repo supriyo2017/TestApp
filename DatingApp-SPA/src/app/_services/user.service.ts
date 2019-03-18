@@ -11,7 +11,7 @@ import { User } from "src/_models/user";
 // };
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class UserService {
   baseIrl = environment.apiUrl;
@@ -19,11 +19,15 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     //return this.http.get<User[]>(this.baseIrl + "users", httpOptions);
-    return this.http.get<User[]>(this.baseIrl + "users");
+    return this.http.get<User[]>(this.baseIrl + 'users');
   }
 
   getUser(id): Observable<User> {
     //return this.http.get<User>(this.baseIrl + "users/" + id, httpOptions);
-    return this.http.get<User>(this.baseIrl + "users/" + id);
+    return this.http.get<User>(this.baseIrl + 'users/' + id);
+  }
+
+  updateUser(id: number, user: User){
+    return this.http.put(this.baseIrl + 'users/'+id, user);
   }
 }
