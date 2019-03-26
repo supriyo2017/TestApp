@@ -3,14 +3,16 @@ using System;
 using DatingApp.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DatingApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190318113146_AddedPublicId")]
+    partial class AddedPublicId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,9 +29,11 @@ namespace DatingApp.API.Migrations
 
                     b.Property<bool>("IsMain");
 
+                    b.Property<string>("PublicId");
+
                     b.Property<string>("Url");
 
-                    b.Property<int?>("UserId");
+                    b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
@@ -88,9 +92,10 @@ namespace DatingApp.API.Migrations
 
             modelBuilder.Entity("DatingApp.API.Models.Photo", b =>
                 {
-                    b.HasOne("DatingApp.API.Models.User")
+                    b.HasOne("DatingApp.API.Models.User", "User")
                         .WithMany("Photos")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

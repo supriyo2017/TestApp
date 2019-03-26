@@ -1,0 +1,5 @@
+password: Supriyo2019~!@
+Cloud name:ddhsflu60
+API key:444868666774747
+API secret:GXMIfk1QEeQdjuijFQlTtK_LXrE
+Environment variable:cloudinary://444868666774747:GXMIfk1QEeQdjuijFQlTtK_LXrE@ddhsflu60/
