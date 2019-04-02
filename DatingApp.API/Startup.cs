@@ -58,6 +58,7 @@ namespace DatingApp.API
                     ValidateAudience = false
                 };
             });
+            services.AddScoped<LogUserActivity>();
         }
 
         private void JwtBearerDefault(AuthenticationOptions obj)
